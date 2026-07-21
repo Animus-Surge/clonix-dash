@@ -1,0 +1,72 @@
+{
+  "roles": [
+    {
+      "id": 0,
+      "name": "Administrator",
+      "permissions": [
+        "ManageAll"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "Department Head",
+      "permissions": [
+        "ManageUnit",
+        "TransferDevices"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Analyst",
+      "permissions": [
+        "ManageUnitDevices"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "username": "somenamehere",
+      "role": 0,
+      "units": [0]
+    }
+  ],
+  "units": [
+    {
+      "id": 0,
+      "departmentName": "Department 1",
+      "pointOfContact": {
+        "name": "John Doe",
+        "role": "Assistant Director",
+        "email": "johndoe@example.com",
+        "phone": "+12345678901",
+        "userID": null
+      }
+    },
+    {
+      "id": 1,
+      "departmentName": "Department 2"
+    },
+    {
+      "id": 2,
+      "departmentName": "Department 2, Accounting Office",
+      "parent": 1
+    }
+  ],
+  "devices": [
+    {
+      "serialNumber": "01AB2CD",
+      "hostname": "some-host.domain.com",
+      "unit": 0,
+      "provisionDate": "2026-01-01",
+      "lastCheckInDate": "2026-07-20",
+      "keys": [
+        {
+          "id": 0,
+          "value": "1234567890",
+          "expiryDate": "never"
+        }
+      ]
+    }
+  ]
+}

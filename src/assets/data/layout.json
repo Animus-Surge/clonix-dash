@@ -1,0 +1,14 @@
+{
+  "pages": [
+    {
+      "name": "dashboard",
+      "path": "/",
+      "layout_base": "grid"
+    },
+    {
+      "name": "devices",
+      "path": "/devices",
+      "layout_base": "title"
+    }
+  ]
+}

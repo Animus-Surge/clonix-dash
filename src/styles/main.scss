@@ -1,0 +1,21 @@
+/*
+Clonix Dash: styles/main.scss
+
+Main styling file
+*/
+
+// Main scope
+body {
+  margin: 0;
+  font-family: $font-normal;
+  background: $color-prim;
+  color: $color-text-regular;
+
+  height: 100vh;
+}
+
+
+.text-error {
+  color: $color-status-error;
+}
+

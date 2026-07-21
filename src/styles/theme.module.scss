@@ -1,0 +1,57 @@
+
+@import '@fontsource/adwaita-mono';
+@import '@gjsify/adwaita-fonts';
+
+// Font families
+$font-normal: 'Adwaita Sans', Cantarell, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-mono: 'Adwaita Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+// Theme colors
+$color-prim: #ebebeb;
+$color-secon: #93a8ac;
+$color-darkish-secon: #708285;
+$color-dark-secon: #424b54;
+$color-tert-light: #e2b4bd;
+$color-tert-dark: #9b6a6c;
+
+// Text colors
+$color-text-regular: #232323;
+$color-text-light: #cdcdcd;
+
+// Grayscale colors
+$color-grayscale-f: #ffffff;
+$color-grayscale-e: #eeeeee;
+$color-grayscale-d: #dddddd;
+$color-grayscale-c: #cccccc;
+$color-grayscale-b: #bbbbbb;
+$color-grayscale-a: #aaaaaa;
+$color-grayscale-9: #999999;
+$color-grayscale-8: #888888;
+$color-grayscale-7: #777777;
+$color-grayscale-6: #666666;
+$color-grayscale-5: #555555;
+$color-grayscale-4: #444444;
+$color-grayscale-3: #333333;
+$color-grayscale-2: #222222;
+$color-grayscale-1: #111111;
+$color-grayscale-0: #000000;
+
+// Status colors (Ripped from bootstrap)
+$color-status-success: #198754;
+$color-status-info: #0dcaf0;
+$color-status-warning: #ffc107;
+$color-status-error: #dc3545;
+
+// Rainbow Colors (Pure/half tones)
+$color-rainbow-red: #ff0000;
+$color-rainbow-orange: #ff7700;
+$color-rainbow-yellow: #ffff00;
+$color-rainbow-lime: #77ff00;
+$color-rainbow-green: #00ff00;
+$color-rainbow-mint: #00ff77;
+$color-rainbow-teal: #00ffff;
+$color-rainbow-sky: #0077ff;
+$color-rainbow-blue: #0000ff;
+$color-rainbow-purple: #7700ff;
+$color-rainbow-magenta: #ff00ff;
+$color-rainbow-hotpink: #ff0077;
