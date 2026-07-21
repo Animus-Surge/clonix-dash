@@ -1,6 +1,18 @@
+# NPM specific
 node_modules
+package_lock.json
+
+# Builds
 .DS_Store
 dist
 dist-ssr
 *.local
-.env
+
+# Environment variable files
+*.env*
+
+# Files and archives
+*.log*
+*.tar*
+*.zip
+
