@@ -15,19 +15,21 @@ const props = defineProps({
   display: block;
   text-decoration: none;
   padding: 5px;
-  width: 30%;
   align-self: center;
   text-align: center;
 
   border-radius: 5px;
 
-  transition: background 0.15s;
+  cursor: pointer;
+
+  transition: background 0.15s, color 0.15s;
 
   background-color: $color-tert-light;
   color: $color-text-regular;
 
   &:hover {
     background-color: $color-tert-dark;
+    color: $color-text-light;
   }
 }
 </style>

@@ -5,7 +5,11 @@
         <StatusMessage class="block-warning" icon="exclamation-triangle-fill" message="Development build" />
       </div>
       <div class="header-right">
-        <Icon icon=""></Icon>
+        <span class="header-label">Hello, name!</span>
+        <Button href="/" class="logout-button">
+          <Icon icon="box-arrow-in-right"></Icon>
+          <span>Logout</span>
+        </Button>
       </div>
     </div>
     <div class="frame-content">
@@ -21,6 +25,7 @@
 import SideNav from '@/components/SideNav.vue'
 import StatusMessage from '@/components/ui/StatusMessage.vue';
 import Icon from '@/components/ui/Icon.vue';
+import Button from '@/components/ui/Button.vue';
 </script>
 
 <style scoped lang='scss'>
@@ -35,6 +40,7 @@ import Icon from '@/components/ui/Icon.vue';
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   min-height: 50px;
 
   background-color: $color-dark-secon;
@@ -61,6 +67,17 @@ import Icon from '@/components/ui/Icon.vue';
   }
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-label {
+  font-size: 14pt;
+  color: $color-text-light;
+}
+
 .status-message {
   align-self: center;
   text-align: center;
@@ -74,6 +91,20 @@ import Icon from '@/components/ui/Icon.vue';
   .status-icon {
     font-size: 20pt;
     width: fit-content;
+  }
+}
+
+.logout-button {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+
+  font-size: 20pt;
+
+  span {
+    font-size: 14pt;
   }
 }
 </style>

@@ -15,49 +15,30 @@
           </Column>
         </Grid>
       </template>
-      <template #tab-1>Tab 2</template>
+      <template #tab-1>
+        <Grid numCols="4">
+          <!--Info cards-->
+          <Card icon="cpu" title="CPU Information">
+            <Table :dataset="cpuInfo" />
+          </Card>
+          <Card icon="gpu-card" title="GPU Information">
+            <Table :dataset="gpuInfo" />
+          </Card>
+          <Card icon="memory" title="Memory Information">
+            <Table :dataset="memoryInfo" />
+          </Card>
+          <Card icon="hdd-stack" title="Disk Information">
+            <Table :dataset="disksInfo" />
+          </Card>
+
+          <!--Usage charts-->
+          <Card icon="gauge" title="CPU Usage">
+            
+          </Card>
+        </Grid>
+      </template>
       <template #tab-2>Tab 3</template>
     </TabPanel>
-  </Section>
-  <Section>
-    <Grid numCols="2">
-      <Column>
-        <Card icon="pc-display" title="Device Info">
-          <Table :dataset="deviceInfo" />
-        </Card>
-      </Column>
-      <Column>
-        <Card icon="hdd" title="Disk Usage">
-          <Table :dataset="diskUsage" />
-        </Card>
-        <Card icon="hdd-stack" title="OS Information">
-          <Table :dataset="osInfo" />
-        </Card>
-      </Column>
-    </Grid>
-  </Section>
-  <Section>
-    <Grid numCols="3">
-      <Column>
-        <Card icon="cpu" title="CPU">
-          <Table :dataset="cpuInfo" />
-          <Gauge :sections="cpuGaugeSections" :indicator="cpuUsage" :showLabel="true" />
-        </Card>
-      </Column>
-      <Column>
-        <Card icon="gpu-card" title="GPU">
-          <Table :dataset="gpuInfo" />
-        </Card>
-      </Column>
-      <Column>
-        <Card icon="memory" title="Memory">
-          <Table :dataset="memoryInfo" />
-        </Card>
-        <Card icon="hdd" title="Disks">
-          <Table :dataset="disksInfo" />
-        </Card>
-      </Column>
-    </Grid>
   </Section>
 </template>
 
@@ -67,7 +48,6 @@ import Grid from '@/components/ui/sections/Grid.vue'
 import Column from '@/components/ui/sections/Column.vue'
 import Card from '@/components/ui/Card.vue'
 import Table from '@/components/ui/Table.vue'
-import Gauge from '@/components/ui/charts/Gauge.vue'
 import TabPanel from '@/components/ui/panels/TabPanel.vue'
 import { onMounted } from 'vue'
 

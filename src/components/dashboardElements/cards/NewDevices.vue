@@ -1,7 +1,7 @@
 <template>
   <Card icon="pc-display" title="New Devices">
     <Table :dataset="testTableData" routeBase="/devices" />
-    <Button href="/devices">See All</Button>
+    <Button class="card-button" href="/devices">See All</Button>
   </Card>
 </template>
 
@@ -25,5 +25,7 @@ const testTableData = {
 </script>
 
 <style scoped lang="scss">
-
+.card-button {
+  width: 30%;
+}
 </style>
