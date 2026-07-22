@@ -1,5 +1,6 @@
 <template>
   <RouterLink class="button" v-if="props.buttonType === 'link'" :to="props.href"><slot /></RouterLink>
+  <a class="button" v-else :href="props.href"><slot /></a>
 </template>
 
 <script setup lang="ts">

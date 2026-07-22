@@ -11,7 +11,9 @@ body {
   background: $color-prim;
   color: $color-text-regular;
 
-  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
 }
 
 
@@ -19,3 +21,10 @@ body {
   color: $color-status-error;
 }
 
+
+
+.block-warning {
+  border: 1px solid $color-status-warning;
+  background-color: transparentize($color-status-warning, 0.9);
+  color: $color-status-warning;
+}

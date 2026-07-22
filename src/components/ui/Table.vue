@@ -6,12 +6,7 @@
     </tr>
     <tr v-for="entry in data.entries" @click="handleRowClick(entry)">
       <td v-for="(label, colIndex) in entry" :class="classOverrides[colIndex] !== 'none' ? `font-override-${classOverrides[colIndex]}` : null">
-        <template v-if="colIndex === data.iconColumn">
-          <Tooltip v-if="label !== false" :text="label" :align="props.tooltipAlign">
-            <Icon icon="exclamation-triangle-fill" class="text-error"/>
-          </Tooltip>
-        </template>
-        <template v-else>{{ label }}</template>
+        {{ label }}
       </td>
     </tr>
   </table>

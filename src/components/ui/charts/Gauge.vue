@@ -78,13 +78,13 @@ const labelPlugin = {
     const pct = total > 0 ? Math.round((props.indicator / total) * 100) : 0
 
     const xCenter = arc.x
-    const yCenter = arc.y - 10
+    const yCenter = arc.y - 90
 
     ctx.save()
     ctx.textAlign = 'center'
     ctx.textBaseline = 'middle'
     ctx.font = `bold 18px ${theme.fontNormal}`
-    ctx.fillStyle = theme.colorTextLight
+    ctx.fillStyle = theme.colorTextRegular
     ctx.fillText(`${pct}%`, xCenter, yCenter)
     ctx.restore()
   }

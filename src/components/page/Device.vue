@@ -1,7 +1,20 @@
 <template>
   <Section>
     <TabPanel :num-tabs="3" :tab-titles="['Overview', 'Metrics', 'Logs']">
-      <template #tab-0>Tab 1</template>
+      <template #tab-0>
+        <Grid numCols="2">
+          <Column>
+            <Card icon="pc-display" title="Device Information">
+              <Table :dataset="deviceInfo" />
+            </Card>
+          </Column>
+          <Column>
+            <Card icon="hdd-stack" title="OS Information">
+              <Table :dataset="osInfo" />
+            </Card>
+          </Column>
+        </Grid>
+      </template>
       <template #tab-1>Tab 2</template>
       <template #tab-2>Tab 3</template>
     </TabPanel>
@@ -11,9 +24,6 @@
       <Column>
         <Card icon="pc-display" title="Device Info">
           <Table :dataset="deviceInfo" />
-        </Card>
-        <Card icon="speedometer" title="CPU Usage">
-          <!-- <Gauge :sections="cpuGaugeSections" :indicator="cpuUsage" :showLabel="true" /> -->
         </Card>
       </Column>
       <Column>
@@ -81,6 +91,7 @@ const deviceInfo = kv([
   ['Puppet Version', '8.10.1'],
   ['AIO Agent Version', '8.10.1'],
   ['Catalog Environment', 'production'],
+  ['Uptime', '23 Days, 03:17:22']
 ])
 
 const diskUsage = kv([
