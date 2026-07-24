@@ -32,7 +32,7 @@
           </Card>
 
           <!--Usage charts-->
-          <Card icon="gauge" title="CPU Usage">
+          <Card icon="speedometer" title="CPU Usage">
             
           </Card>
         </Grid>
@@ -47,7 +47,7 @@ import Section from '@/components/ui/sections/Section.vue'
 import Grid from '@/components/ui/sections/Grid.vue'
 import Column from '@/components/ui/sections/Column.vue'
 import Card from '@/components/ui/Card.vue'
-import Table from '@/components/ui/Table.vue'
+import Table from '@/components/ui/DataTable.vue'
 import TabPanel from '@/components/ui/panels/TabPanel.vue'
 import { onMounted } from 'vue'
 

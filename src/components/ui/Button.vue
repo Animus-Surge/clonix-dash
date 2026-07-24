@@ -24,12 +24,12 @@ const props = defineProps({
 
   transition: background 0.15s, color 0.15s;
 
-  background-color: $color-tert-light;
-  color: $color-text-regular;
+  background-color: $color-tert;
+  color: $color-text-dark;
 
   &:hover {
-    background-color: $color-tert-dark;
-    color: $color-text-light;
+    background-color: $color-hover;
+    color: $color-text-hover;
   }
 }
 </style>

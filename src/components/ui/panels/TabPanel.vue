@@ -61,24 +61,24 @@ const switchTab = (tab: number) => {
   border-start-end-radius: 5px;
 
   cursor: pointer;
-  background-color: $color-dark-secon;
+  background-color: $color-dark-section;
   color: $color-text-light;
 
   transition: background 0.15s, color 0.15s;
 
   &.active {
-    background-color: $color-darkish-secon;
-    color: $color-text-regular;
+    background-color: $color-tert;
+    color: $color-text-dark;
   }
 
   &:hover {
-    background-color: $color-tert-dark;
-    color: $color-text-regular;
+    background-color: $color-hover;
+    color: $color-text-hover;
   }
 }
 
 .tab {
-  background-color: $color-darkish-secon;
+  background-color: $color-tert;
 
   padding: 15px;
 

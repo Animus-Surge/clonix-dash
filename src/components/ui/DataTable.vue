@@ -2,7 +2,6 @@
   <table>
     <tr class="table-header">
       <th v-for="label in data.headerLabels">{{ label }}</th>
-      <th></th>
     </tr>
     <tr v-for="entry in data.entries" @click="handleRowClick(entry)">
       <td v-for="(label, colIndex) in entry" :class="classOverrides[colIndex] !== 'none' ? `font-override-${classOverrides[colIndex]}` : null">
@@ -14,8 +13,6 @@
 
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import Icon from '@/components/ui/Icon.vue'
-import Tooltip from '@/components/ui/Tooltip.vue'
 
 const props = defineProps(['dataset', 'tooltipAlign', 'routeBase'])
 const router = useRouter()
@@ -56,11 +53,11 @@ table {
     cursor: pointer;
 
     &:nth-child(even) {
-      background-color: $color-secon;
+      background-color: $color-grayscale-8;
     }
 
     &:hover {
-      background-color: $color-tert-dark;
+      background-color: $color-hover;
     }
   }
 }

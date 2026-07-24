@@ -29,7 +29,7 @@ withDefaults(defineProps<{
   border-radius: 4px;
   white-space: nowrap;
 
-  background-color: $color-dark-secon;
+  background-color: $color-dark-section;
   color: $color-text-light;
   font-size: 0.75em;
 
@@ -43,7 +43,7 @@ withDefaults(defineProps<{
     top: 100%;
 
     border: 4px solid transparent;
-    border-top-color: $color-dark-secon;
+    border-top-color: $color-dark-section;
   }
 }
 

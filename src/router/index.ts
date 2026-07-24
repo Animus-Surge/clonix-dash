@@ -3,11 +3,15 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 // Main pages
 import Main from '@/components/page/Main.vue'
 import Devices from '@/components/page/Devices.vue'
-import Manifests from '@/components/page/Manifests.vue'
-import Settings from '@/components/page/Settings.vue'
+import Logs from '@/components/page/Logs.vue'
+import Users from '@/components/page/Users.vue'
+// import Units from '@/components/page/Unit.vue'
+// import Messages from '@/components/page/Messages.vue'
 
 // Dynamic pages
 import Device from '@/components/page/Device.vue'
+// import User from '@/components/page/User.vue'
+// import Unit from '@/components/page/Unit.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -15,26 +19,33 @@ const routes: RouteRecordRaw[] = [
     name: 'home',
     component: Main
   },
+
+  // Device routes
   {
     path: '/devices',
     name: 'devices',
     component: Devices
   },
   {
-    path: '/manifests',
-    name: 'manifests',
-    component: Manifests
-  },
-  {
-    path: '/settings',
-    name: 'settings',
-    component: Settings
-  },
-  {
     path: '/devices/:device',
     name: 'device-info',
     component: Device
+  },
+
+  // Logs
+  {
+    path: '/logs',
+    name: 'logs',
+    component: Logs
   }
+
+  // Units
+
+  // Users
+
+  // Messages
+
+  // Settings
 ]
 
 const router = createRouter({

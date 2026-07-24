@@ -12,7 +12,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/styles/theme.module.scss" as *;`
+        additionalData: `@use "@/styles/theme.scss" as *;`
       }
     }
   }

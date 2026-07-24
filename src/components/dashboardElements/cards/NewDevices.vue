@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import Button from '@/components/ui/Button.vue';
 import Card from '@/components/ui/Card.vue'
-import Table from '@/components/ui/Table.vue';
+import Table from '@/components/ui/DataTable.vue';
 
 const testTableData = {
   headerLabels: ['Serial Number', 'Hostname', 'Unit'],

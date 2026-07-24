@@ -2,7 +2,11 @@
   <div class="frame">
     <div class="frame-header">
       <div class="header-left">
+        <Image src="/ignore/VCU_H_Gold lettering - 4C.png" alt="VCU logo"></Image>
         <StatusMessage class="block-warning" icon="exclamation-triangle-fill" message="Development build" />
+      </div>
+      <div class="header-middle">
+
       </div>
       <div class="header-right">
         <span class="header-label">Hello, name!</span>
@@ -13,7 +17,7 @@
       </div>
     </div>
     <div class="frame-content">
-      <SideNav />
+      <SideNav :links="navLinks" />
       <div class="page">
         <RouterView />
       </div>
@@ -26,6 +30,16 @@ import SideNav from '@/components/SideNav.vue'
 import StatusMessage from '@/components/ui/StatusMessage.vue';
 import Icon from '@/components/ui/Icon.vue';
 import Button from '@/components/ui/Button.vue';
+import Image from './components/ui/Image.vue';
+
+const navLinks = [
+  {link: '/', label: 'Overview', icon: 'house-door'},
+  {link: '/devices', label: 'Devices', icon: 'pc-display'},
+  {link: '/logs', label: 'Logs', icon: 'hdd-stack'},
+  {link: '/users', label: 'Users', icon: 'person'},
+  {link: '/units', label: 'Units', icon: 'database'},
+  {link: '/messages', label: 'Messages', icon: 'envelope'}
+]
 </script>
 
 <style scoped lang='scss'>
@@ -42,8 +56,9 @@ import Button from '@/components/ui/Button.vue';
   align-items: center;
   justify-content: space-between;
   min-height: 50px;
+  max-height: 50px;
 
-  background-color: $color-dark-secon;
+  background-color: $color-dark-section;
 
   border-bottom: 1px solid black;
 
@@ -59,12 +74,19 @@ import Button from '@/components/ui/Button.vue';
   min-height: 0;
 
   .page {
-    background-color: $color-secon;
+    background-color: $color-grayscale-8;
     flex: 1;
     min-height: 0;
     overflow-y: auto;
     width: 100%;
   }
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
 }
 
 .header-right {

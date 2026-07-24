@@ -2,6 +2,10 @@
 node_modules
 package_lock.json
 
+# Ignore files and directories
+ignore/
+*.ignore*
+
 # Builds
 .DS_Store
 dist

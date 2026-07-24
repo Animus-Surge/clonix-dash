@@ -9,12 +9,11 @@
 <script setup lang="ts">
 import Section from '@/components/ui/sections/Section.vue'
 import Card from '@/components/ui/Card.vue'
-import Table from '@/components/ui/Table.vue'
+import Table from '@/components/ui/DataTable.vue'
 
 const infoTables = {
   headerLabels: ['Serial Number', 'Hostname', 'Unit', 'Provision Date', 'Last Check In'],
   fontOverrides: ['monospace', 'monospace', 'none', 'none', 'none', 'none'],
-  iconColumn: 5,
   linkColumn: 0,
   entries: [
     ['JK7F9R3', 'zeus.example.adp.net', 'Unit 1', '2026-07-15', '2026-07-20 14:32:05 UTC', false],

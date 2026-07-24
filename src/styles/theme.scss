@@ -1,3 +1,4 @@
+// CloNIX Dash: @/src/styles/theme.scss - Default theming.
 
 @import '@fontsource/adwaita-mono';
 @import '@gjsify/adwaita-fonts';
@@ -6,16 +7,8 @@
 $font-normal: 'Adwaita Sans', Cantarell, -apple-system, BlinkMacSystemFont, sans-serif;
 $font-mono: 'Adwaita Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-// Theme colors
-$color-prim: #ebebeb;
-$color-secon: #93a8ac;
-$color-darkish-secon: #708285;
-$color-dark-secon: #424b54;
-$color-tert-light: #e2b4bd;
-$color-tert-dark: #9b6a6c;
-
 // Text colors
-$color-text-regular: #232323;
+$color-text-dark: #232323;
 $color-text-light: #cdcdcd;
 
 // Grayscale colors
@@ -55,3 +48,14 @@ $color-rainbow-blue: #0000ff;
 $color-rainbow-purple: #7700ff;
 $color-rainbow-magenta: #ff00ff;
 $color-rainbow-hotpink: #ff0077;
+
+// Theme colors
+$color-prim: #dedede;
+$color-secon: #ffffff;
+$color-tert: #ffb300;
+$color-dark-section: $color-grayscale-2;
+
+// Interaction colors
+$color-text-hover: $color-text-dark;
+$color-hover: $color-prim;
+$color-link-active: $color-tert;

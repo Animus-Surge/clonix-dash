@@ -23,14 +23,14 @@ const props = defineProps({
 <style scoped lang="scss">
 .card {
   border-radius: 5px;
-  background-color: $color-darkish-secon;
+  background-color: $color-grayscale-a;
 
   width: 100%;
   height: fit-content;
 
   .card-header {
     padding: 5px;
-    border-bottom: 1px solid $color-dark-secon;
+    border-bottom: 1px solid $color-dark-section;
 
     display: flex;
     justify-content: space-between;
