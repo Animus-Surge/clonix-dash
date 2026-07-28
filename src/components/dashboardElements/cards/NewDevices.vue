@@ -13,7 +13,7 @@ import Table from '@/components/ui/DataTable.vue';
 const testTableData = {
   headerLabels: ['Serial Number', 'Hostname', 'Unit'],
   fontOverrides: ['monospace', 'monospace', 'none'],
-  linkColumn: 0,
+  urlParamSourceCol: 0,
   entries: [
     ['JK7F9R3', 'zeus.example.adp.net', 'Unit 1'],
     ['PF-3K4M2X', 'poseidon.example.adp.net', 'Unit 2'],

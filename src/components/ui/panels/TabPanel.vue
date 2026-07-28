@@ -78,7 +78,7 @@ const switchTab = (tab: number) => {
 }
 
 .tab {
-  background-color: $color-tert;
+  background-color: $color-grayscale-6;
 
   padding: 15px;
 

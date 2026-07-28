@@ -4,14 +4,13 @@ import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import Main from '@/components/page/Main.vue'
 import Devices from '@/components/page/Devices.vue'
 import Logs from '@/components/page/Logs.vue'
-import Users from '@/components/page/Users.vue'
-// import Units from '@/components/page/Unit.vue'
-// import Messages from '@/components/page/Messages.vue'
+import Units from '@/components/page/Units.vue'
+import Messages from '@/components/page/Messages.vue'
 
 // Dynamic pages
 import Device from '@/components/page/Device.vue'
-// import User from '@/components/page/User.vue'
-// import Unit from '@/components/page/Unit.vue'
+//import User from '@/components/page/User.vue'
+//import Unit from '@/components/page/Unit.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -32,20 +31,22 @@ const routes: RouteRecordRaw[] = [
     component: Device
   },
 
-  // Logs
-  {
-    path: '/logs',
-    name: 'logs',
-    component: Logs
-  }
-
   // Units
-
-  // Users
+  {
+    path: '/units',
+    name: 'unit-info',
+    component: Units
+  },
 
   // Messages
+  {
+    path: '/messages',
+    name: 'messages',
+    component: Messages
+  }
 
   // Settings
+  // Settings is going to be a popup component.
 ]
 
 const router = createRouter({

@@ -14,16 +14,22 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-const props = defineProps(['dataset', 'tooltipAlign', 'routeBase'])
+import type { Dataset } from '@/types'
+
+const props = defineProps<{
+    dataset: Dataset, 
+    tooltipAlign?: String 
+    routeBase?: String
+}>()
 const router = useRouter()
 
 const data = props.dataset
 
 const classOverrides = props.dataset.fontOverrides
 
-function handleRowClick(entry: (string | false)[]) {
-  if (props.routeBase == null || data.linkColumn == null) return
-  router.push(`${props.routeBase}/${entry[data.linkColumn]}`)
+function handleRowClick(entry: String[]) {
+  if (props.routeBase == null || data.urlParamSourceCol == null) return
+  router.push(`${props.routeBase}/${entry[data.urlParamSourceCol]}`)
 }
 </script>
 

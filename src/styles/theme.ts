@@ -1,4 +1,4 @@
-import type { Theme } from './theme.module.scss'
+import type { Theme } from './theme.scss'
 
 export const theme: Theme = {
   // Font families
@@ -6,12 +6,9 @@ export const theme: Theme = {
   fontMono: "'Adwaita Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
 
   // Theme colors
-  colorPrim: '#ebebeb',
-  colorSecon: '#93a8ac',
-  colorDarkishSecon: '#708285',
-  colorDarkSecon: '#424b54',
-  colorTertLight: '#e2b4bd',
-  colorTertDark: '#9b6a6c',
+  colorPrim: '#dedede',
+  colorSecon: '#ffffff',
+  colorTert: '#ffb300',
 
   // Text colors
   colorTextRegular: '#232323',

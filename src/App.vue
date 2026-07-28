@@ -35,7 +35,6 @@ import Image from './components/ui/Image.vue';
 const navLinks = [
   {link: '/', label: 'Overview', icon: 'house-door'},
   {link: '/devices', label: 'Devices', icon: 'pc-display'},
-  {link: '/logs', label: 'Logs', icon: 'hdd-stack'},
   {link: '/users', label: 'Users', icon: 'person'},
   {link: '/units', label: 'Units', icon: 'database'},
   {link: '/messages', label: 'Messages', icon: 'envelope'}

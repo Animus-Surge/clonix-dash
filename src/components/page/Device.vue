@@ -17,9 +17,10 @@
       </template>
       <template #tab-1>
         <Grid numCols="4">
-          <!--Info cards-->
           <Card icon="cpu" title="CPU Information">
             <Table :dataset="cpuInfo" />
+            <hr> <!--FIXME-->
+            <!-- <LinePlot /> -->
           </Card>
           <Card icon="gpu-card" title="GPU Information">
             <Table :dataset="gpuInfo" />
@@ -30,14 +31,13 @@
           <Card icon="hdd-stack" title="Disk Information">
             <Table :dataset="disksInfo" />
           </Card>
-
-          <!--Usage charts-->
-          <Card icon="speedometer" title="CPU Usage">
-            
-          </Card>
         </Grid>
       </template>
-      <template #tab-2>Tab 3</template>
+      <template #tab-2>
+        <Card icon="hdd-stack" title="System Logs">
+          <Table :dataset="logs" />
+        </Card>
+      </template>
     </TabPanel>
   </Section>
 </template>
@@ -49,11 +49,22 @@ import Column from '@/components/ui/sections/Column.vue'
 import Card from '@/components/ui/Card.vue'
 import Table from '@/components/ui/DataTable.vue'
 import TabPanel from '@/components/ui/panels/TabPanel.vue'
+
 import { onMounted } from 'vue'
+import LinePlot from '@/components/ui/charts/LinePlot.vue'
 
 onMounted(() => {
   // TODO: load data
 })
+
+const logs = {
+  headerLabels: ['Timestamp', 'Type', 'Severity', 'Message'],
+  fontOverrides: ['monospace', 'monospace', 'monospace', 'none'],
+  entries: [
+    ['2026-07-28 15:32:22', 'SYSTEM', 'NOTICE', 'System has been offline for more than 5 minutes!'],
+    ['2026-07-28 15:26:18', 'POWERCTL', 'INFO', 'System shutdown.']
+  ]
+}
 
 const kv = (entries: [string, string][]) => ({
   headerLabels: ['Property', 'Value'],
@@ -61,6 +72,8 @@ const kv = (entries: [string, string][]) => ({
   iconColumn: -1,
   entries
 })
+
+const cpuUsageHistory = [80, 80, 80, 23, 24, 22, 21, 23, 20, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 const deviceInfo = kv([
   ['Serial Number', 'JK7F9R3'],
