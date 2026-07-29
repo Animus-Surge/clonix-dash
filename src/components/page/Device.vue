@@ -12,6 +12,9 @@
             <Card icon="hdd-stack" title="OS Information">
               <Table :dataset="osInfo" />
             </Card>
+            <Card icon="hdd-stack" title="Status">
+              
+            </Card>
           </Column>
         </Grid>
       </template>
@@ -20,7 +23,7 @@
           <Card icon="cpu" title="CPU Information">
             <Table :dataset="cpuInfo" />
             <hr> <!--FIXME-->
-            <!-- <LinePlot /> -->
+            <LinePlot title="CPU Usage" :xlabels="cpuUsage[0]" :data="cpuUsage[1]" />
           </Card>
           <Card icon="gpu-card" title="GPU Information">
             <Table :dataset="gpuInfo" />
@@ -73,7 +76,10 @@ const kv = (entries: [string, string][]) => ({
   entries
 })
 
-const cpuUsageHistory = [80, 80, 80, 23, 24, 22, 21, 23, 20, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+const cpuUsage = [
+  Array.from({ length: 31 }, (_, i) => `${i - 30}`),
+  [100, 100, 100, 70, 2, 3, 2, 17, 25, 30, 31, 31, 31, 28, 29, 14, 29, 33, 81, 82, 10, 10, 9, 10, 11, 11, 9, 11, 19, 1, 0]
+]
 
 const deviceInfo = kv([
   ['Serial Number', 'JK7F9R3'],
@@ -131,10 +137,4 @@ const disksInfo = kv([
   ['sdd', '100 GB SATA SSD (Intel SSDSC2KB010T7)'],
 ])
 
-const cpuUsage = 12
-const cpuGaugeSections = [
-  { value: 70, color: '#198754' },
-  { value: 15, color: '#ffc107' },
-  { value: 15, color: '#dc3545' },
-]
 </script>
