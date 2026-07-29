@@ -46,11 +46,6 @@ const options = {
     }
   },
   responsive: true,
-  // scales: {
-  //   xAxis: {
-  //     type: 'time'
-  //   }
-  // }
 }
 </script>
 

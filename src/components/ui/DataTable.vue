@@ -4,7 +4,7 @@
       <th v-for="label in data.headerLabels">{{ label }}</th>
     </tr>
     <tr v-for="entry in data.entries" @click="handleRowClick(entry)">
-      <td v-for="(label, colIndex) in entry" :class="classOverrides[colIndex] !== 'none' ? `font-override-${classOverrides[colIndex]}` : null">
+      <td v-for="label in entry">
         {{ label }}
       </td>
     </tr>
@@ -14,34 +14,33 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
 
-import type { Dataset } from '@/types'
+interface TableDataset {
+  headerLabels: string[]
+  entries: any[][]
+}
 
 const props = defineProps<{
-    dataset: Dataset, 
-    tooltipAlign?: String 
-    routeBase?: String
+    clickAction: string
+    actionKey: number
+    data: TableDataset
 }>()
 const router = useRouter()
 
-const data = props.dataset
-
-const classOverrides = props.dataset.fontOverrides
-
 function handleRowClick(entry: String[]) {
-  if (props.routeBase == null || data.urlParamSourceCol == null) return
-  router.push(`${props.routeBase}/${entry[data.urlParamSourceCol]}`)
+  const action = props.clickAction.split(':')
 }
 </script>
 
 <style scoped lang="scss">
+// Font Overrides
 .font-override-serif {
   font-family: 'Times New Roman', Times, serif;
 }
-
 .font-override-monospace {
   font-family: 'Adwaita Mono', 'Fira Code', 'Consolas', monospace;
 }
 
+// Main styles
 table {
   width: 100%;
   border-collapse: collapse;

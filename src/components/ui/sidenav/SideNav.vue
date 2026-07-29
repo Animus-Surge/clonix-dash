@@ -8,25 +8,23 @@
 
     <div class='nav'>
       <ul>
-        <SidenavButton v-for="link in links" :href="link.link" :label="link.label" :icon="link.icon" />
+        <span v-for="link in links">
+          <SidenavButton v-if="link.display" :href="link.link" :label="link.label" :icon="link.icon" />
+        </span>
       </ul>
     </div>
   </aside>
 </template>
 
 <script setup lang='ts'>
-  // TODO: add a thing to allow this menu to be populated by an object.
   import SidenavButton from '@/components/ui/sidenav/SidenavButton.vue'
 
   interface Navlink {
     link: string
     label: string
     icon: string
+    display: boolean
   }
-
-  import {ref} from 'vue'
-
-  const sidebarCollapsed = ref(false)
 
   const props = defineProps({
     links: {type: Array<Navlink>, required: true}

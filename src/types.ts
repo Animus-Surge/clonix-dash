@@ -1,8 +1,11 @@
 // Data types
 
-export interface Dataset {
-  headerLabels: String[]
-  fontOverrides: String[]
-  urlParamSourceCol?: number
-  entries: String[][] 
+export interface Device {
+  serialNumber: string
+  unit: string
+  enrollDate: string
+}
+
+export interface DeviceKey {
+
 }

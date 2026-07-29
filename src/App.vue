@@ -2,14 +2,14 @@
   <div class="frame">
     <div class="frame-header">
       <div class="header-left">
-        <Image src="/ignore/VCU_H_Gold lettering - 4C.png" alt="VCU logo"></Image>
+        <!-- <Image src="/ignore/VCU_H_Gold lettering - 4C.png" alt="VCU logo"></Image> -->
         <StatusMessage class="block-warning" icon="exclamation-triangle-fill" message="Development build" />
       </div>
       <div class="header-middle">
 
       </div>
       <div class="header-right">
-        <span class="header-label">Hello, name!</span>
+        <span class="header-label">Hello, name!<br>Unit Name - Subunit</span>
         <Button href="/" class="logout-button">
           <Icon icon="box-arrow-in-right"></Icon>
           <span>Logout</span>
@@ -26,19 +26,23 @@
 </template>
 
 <script setup lang='ts'>
-import SideNav from '@/components/SideNav.vue'
+import SideNav from '@/components/ui/sidenav/SideNav.vue'
 import StatusMessage from '@/components/ui/StatusMessage.vue';
 import Icon from '@/components/ui/Icon.vue';
 import Button from '@/components/ui/Button.vue';
-import Image from './components/ui/Image.vue';
+import Image from '@/components/ui/Image.vue';
 
-const navLinks = [
-  {link: '/', label: 'Overview', icon: 'house-door'},
-  {link: '/devices', label: 'Devices', icon: 'pc-display'},
-  {link: '/users', label: 'Users', icon: 'person'},
-  {link: '/units', label: 'Units', icon: 'database'},
-  {link: '/messages', label: 'Messages', icon: 'envelope'}
-]
+import { Pages } from '@/composables/pages.js';
+
+const navLinks=Array.from(Pages, (page, _) => {
+  return {
+    link: page.path,
+    label: page.name,
+    icon: page.icon,
+    display: page.condition && page.displayOnNav
+  }
+})
+
 </script>
 
 <style scoped lang='scss'>
@@ -96,6 +100,7 @@ const navLinks = [
 
 .header-label {
   font-size: 14pt;
+  text-align: end;
   color: $color-text-light;
 }
 
