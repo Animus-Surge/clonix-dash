@@ -3,6 +3,9 @@
 import Device from '@/components/page/Device.vue'
 import Devices from '@/components/page/Devices.vue'
 import Main from '@/components/page/Main.vue'
+import Messages from '@/components/page/Messages.vue'
+import Unit from '@/components/page/Unit.vue'
+import Units from '@/components/page/Units.vue'
 
 import { useCurrentUserStore } from '@/stores/currentUser'
 
@@ -16,6 +19,15 @@ export const Pages = [
     condition: true, // Controls if the page can be gone to
     displayOnNav: true // Controls if the page should be shown on the nav bar
   },
+  {
+    path: "/messages",
+    name: "Messages",
+    component: Messages,
+    icon: "chat-right-text",
+    condition: true,
+    displayOnNav: true
+  },
+  // Scope locked: requires minimum `unit:devices:readonly`
   {
     path: "/devices",
     name: "Devices",
@@ -31,5 +43,23 @@ export const Pages = [
     icon: "",
     condition: true,
     displayOnNav: false
+  },
+  // Scope locked: requires minimum `admin:units:readonly`
+  {
+    path: '/units',
+    name: 'Units',
+    component: Units,
+    icon: '',
+    condition: true,
+    displayOnNav: true
+  },
+  // Scope locked: requires minimum `unit:readonly`
+  {
+    path: '/units/:unit',
+    name: 'Unit Info',
+    component: Unit,
+    icon: '',
+    condition: true,
+    displayOnNav: true
   }
 ]

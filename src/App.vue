@@ -10,7 +10,7 @@
       </div>
       <div class="header-right">
         <span class="header-label">Hello, name!<br>Unit Name - Subunit</span>
-        <Button href="/" class="logout-button">
+        <Button type='action' @click="spawnNotif()" class="logout-button">
           <Icon icon="box-arrow-in-right"></Icon>
           <span>Logout</span>
         </Button>
@@ -23,6 +23,7 @@
       </div>
     </div>
   </div>
+  <NotificationPanel />
 </template>
 
 <script setup lang='ts'>
@@ -32,7 +33,10 @@ import Icon from '@/components/ui/Icon.vue';
 import Button from '@/components/ui/Button.vue';
 import Image from '@/components/ui/Image.vue';
 
+import NotificationPanel from '@/components/ui/notifications/NotificationPanel.vue';
+
 import { Pages } from '@/composables/pages.js';
+import { useNotificationsStore } from '@/stores/notifications';
 
 const navLinks=Array.from(Pages, (page, _) => {
   return {
@@ -43,9 +47,38 @@ const navLinks=Array.from(Pages, (page, _) => {
   }
 })
 
+const spawnNotif = () => {
+  const store = useNotificationsStore()
+
+  store.add({title: "Notification", type: 'critical', 'message': "This is a test!"})
+}
+
 </script>
 
 <style scoped lang='scss'>
+.status-popup-overlay {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 8px;
+  padding: 8px;
+}
+
+.status-popup {
+  padding: 5px;
+  border-radius: 5px;
+
+  max-width: 350px;
+
+  .status-popup-header {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .frame {
   display: flex;
   flex-direction: column;

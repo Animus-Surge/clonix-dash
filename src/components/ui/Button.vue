@@ -1,12 +1,15 @@
 <template>
-  <RouterLink class="button" v-if="props.buttonType === 'link'" :to="props.href"><slot /></RouterLink>
-  <a class="button" v-else :href="props.href"><slot /></a>
+  <RouterLink v-if="type==='link'" class="button" :to="href"><slot/></RouterLink>
+  <a v-else class="button"><slot/></a>
 </template>
 
 <script setup lang="ts">
-const props = defineProps({
-  buttonType: {type: String, default: 'link'},
-  href: {type: String, required: true}
+const props = withDefaults(defineProps<{
+  type?: string
+  href?: string
+}>(), {
+  type: 'link',
+  href: ''
 })
 </script>
 

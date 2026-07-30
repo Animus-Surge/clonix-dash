@@ -21,10 +21,26 @@ body {
   color: $color-status-error;
 }
 
-
+.block-error {
+  border: 1px solid $color-status-error;
+  background-color: $color-status-error-dark;
+  color: $color-status-error;
+}
 
 .block-warning {
   border: 1px solid $color-status-warning;
-  background-color: transparentize($color-status-warning, 0.9);
+  background-color: $color-status-warning-dark;
   color: $color-status-warning;
+}
+
+.block-info {
+  border: 1px solid $color-status-info;
+  background-color: $color-status-info-dark;
+  color: $color-status-info;
+}
+
+.block-success {
+  border: 1px solid $color-status-success;
+  background-color: $color-status-success-dark;
+  color: $color-status-success;
 }
