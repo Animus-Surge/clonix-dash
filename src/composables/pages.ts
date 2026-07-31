@@ -2,6 +2,7 @@
 
 import Device from '@/components/page/Device.vue'
 import Devices from '@/components/page/Devices.vue'
+import Login from '@/components/page/Login.vue'
 import Main from '@/components/page/Main.vue'
 import Messages from '@/components/page/Messages.vue'
 import Unit from '@/components/page/Unit.vue'
@@ -26,6 +27,14 @@ export const Pages = [
     icon: "chat-right-text",
     condition: true,
     displayOnNav: true
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+    icon: '',
+    condition: true, // Always available
+    displayOnNav: false
   },
   // Scope locked: requires minimum `unit:devices:readonly`
   {

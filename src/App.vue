@@ -1,8 +1,8 @@
 <template>
   <div class="frame">
-    <div class="frame-header">
+    <div v-if="!hideUIPaths.includes(route.fullPath)" class="frame-header">
       <div class="header-left">
-        <!-- <Image src="/ignore/VCU_H_Gold lettering - 4C.png" alt="VCU logo"></Image> -->
+        <Image src="/ignore/VCU_H_Gold lettering - 4C.png" alt="VCU logo"></Image>
         <StatusMessage class="block-warning" icon="exclamation-triangle-fill" message="Development build" />
       </div>
       <div class="header-middle">
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="frame-content">
-      <SideNav :links="navLinks" />
+      <SideNav v-if="!hideUIPaths.includes(route.fullPath)" :links="navLinks" />
       <div class="page">
         <RouterView />
       </div>
@@ -32,11 +32,22 @@ import StatusMessage from '@/components/ui/StatusMessage.vue';
 import Icon from '@/components/ui/Icon.vue';
 import Button from '@/components/ui/Button.vue';
 import Image from '@/components/ui/Image.vue';
-
 import NotificationPanel from '@/components/ui/notifications/NotificationPanel.vue';
 
 import { Pages } from '@/composables/pages.js';
+
 import { useNotificationsStore } from '@/stores/notifications';
+import { useCurrentUserStore } from '@/stores/currentUser';
+
+import { useRoute, useRouter } from 'vue-router'
+import { onMounted } from 'vue';
+
+const userStore = useCurrentUserStore()
+
+const router = useRouter()
+const route = useRoute()
+
+const hideUIPaths = ['/login']
 
 const navLinks=Array.from(Pages, (page, _) => {
   return {
@@ -44,6 +55,12 @@ const navLinks=Array.from(Pages, (page, _) => {
     label: page.name,
     icon: page.icon,
     display: page.condition && page.displayOnNav
+  }
+})
+
+onMounted(() => {
+  if (!userStore.user_loggedIn) {
+    //router.push('/login')
   }
 })
 
