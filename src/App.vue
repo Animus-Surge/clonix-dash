@@ -10,7 +10,7 @@
       </div>
       <div class="header-right">
         <span class="header-label">Hello, name!<br>Unit Name - Subunit</span>
-        <Button type='action' @click="spawnNotif()" class="logout-button">
+        <Button disabled class="logout-button">
           <Icon icon="box-arrow-in-right"></Icon>
           <span>Logout</span>
         </Button>
@@ -63,12 +63,6 @@ onMounted(() => {
     //router.push('/login')
   }
 })
-
-const spawnNotif = () => {
-  const store = useNotificationsStore()
-
-  store.add({title: "Notification", type: 'critical', 'message': "This is a test!"})
-}
 
 </script>
 

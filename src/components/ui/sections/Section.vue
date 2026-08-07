@@ -8,6 +8,9 @@
 
 <style scoped lang="scss">
 .section {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 15px
 }
 </style>

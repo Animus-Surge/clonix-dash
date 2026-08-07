@@ -1,10 +1,21 @@
 <template>
-  <button :disabled="disabled" class="button"><slot/></button>
+  <button :disabled="disabled" class="button"><slot/> <Icon :icon="'chevron-down'"/></button>
+  <div class="dropdown">
+    <a v-for="option in options" class="dropdown-link" @click="option.action">{{ option.name }}</a>
+  </div>
 </template>
 
 <script setup lang="ts">
+import Icon from './Icon.vue';
+
+interface DropdownAction {
+  name: string,
+  action: any
+}
+
 const props = withDefaults(defineProps<{
   disabled?: boolean
+  options: DropdownAction
   }>(),
   {
     disabled: false

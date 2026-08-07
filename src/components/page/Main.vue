@@ -3,14 +3,21 @@
     <Grid :num-cols="3">
       <Column>
         <Card title="Recent Messages" icon="chat-right-text">
-          <Table tableId="dash-messages" :header="['Message', 'From', 'Urgency']" :entries="dataMessages" />
-          <Button button-type="link" href="/messages">See All</Button>
+        </Card>
+        <Card title="Action History">
+
         </Card>
       </Column>
       <Column>
         <Card title="New Systems" icon="pc-display">
-          <Table tableId="dash-newDevs" :header="['Hostname', 'Serial Number', 'Provision Date']" :entries="dataNewDevices" />
-          <Button button-type="link" href="/devices">See All</Button>
+
+        </Card>
+      </Column>
+      <Column>
+        <Card title="Quick Actions" icon="lightning-fill">
+          <Grid :num-cols="2">
+            <Button disabled>Action 1</Button>
+          </Grid>
         </Card>
       </Column>
     </Grid>
@@ -25,15 +32,6 @@ import Card from '@/components/ui/sections/Card.vue';
 import Button from '@/components/ui/Button.vue';
 import Table from '@/components/ui/tables/Table.vue';
 
-const dataMessages = [
-  ['System updates complete for egr-u-it-esf-03.', 'Puppet', 'Info'],
-  ['Hello World!', 'System', 'Info']
-]
-
-const dataNewDevices = [
-  ['egr-u-mn-pl-06', '4126RP2', '2026-07-23'],
-  ['egr-u-it-esf-03', '7T39VD3', '2026-06-02']
-]
 
 </script>
 
