@@ -26,13 +26,14 @@ const props = withDefaults(defineProps<{
 
   cursor: pointer;
 
-  transition: background 0.15s, color 0.15s;
+  transition: background $transition-color, color $transition-color;
 
   background-color: $color-tert;
   color: $color-text-dark;
 
   &:disabled {
     background-color: $color-grayscale-8 !important;
+    color: $color-grayscale-5 !important;
     cursor: initial;
   }
 

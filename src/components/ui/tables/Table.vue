@@ -1,5 +1,6 @@
 <template>
   <table>
+    <tbody>
     <tr class="table-header">
       <td v-if="selectable" style="display: flex; align-items: center; padding-left: 5px;">
         <Icon icon="check2-square"></Icon>
@@ -15,6 +16,7 @@
       </td>
       <td v-for="label in entry">{{label}}</td>
     </tr>
+    </tbody>
   </table>
 </template>
 

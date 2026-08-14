@@ -3,6 +3,9 @@
 @import '@fontsource/adwaita-mono';
 @import '@gjsify/adwaita-fonts';
 
+// Transition properties
+$transition-color: 0.15s;
+
 // Font families
 $font-normal: 'Adwaita Sans', Cantarell, -apple-system, BlinkMacSystemFont, sans-serif;
 $font-mono: 'Adwaita Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -32,12 +35,16 @@ $color-grayscale-0: #000000;
 // Status colors (Ripped from bootstrap)
 $color-status-success: #198754;
 $color-status-success-dark: #082c1b;
+$color-status-success-light: #9dccb6;
 $color-status-info: #0dcaf0;
 $color-status-info-dark: #054754;
+$color-status-info-light: #86bdc8;
 $color-status-warning: #ffc107;
 $color-status-warning-dark: #523e01;
+$color-status-warning-light: #c2b489;
 $color-status-error: #dc3545;
 $color-status-error-dark: #491217;
+$color-status-error-light: #cb9a9e;
 
 // Rainbow Colors (Pure/half tones)
 $color-rainbow-red: #ff0000;

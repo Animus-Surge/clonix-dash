@@ -2,6 +2,7 @@
   <input type="checkbox"
     :checked="isChecked"
     @change="$emit('toggle', id)"
+    @click.stop
   >
 </template>
 

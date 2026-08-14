@@ -16,11 +16,51 @@ body {
   overflow: hidden;
 }
 
+// Code block
+.inline-code {
+  font-family: $font-mono;
+  border-radius: 3px;
+  border: 1px solid $color-grayscale-9;
+  background-color: $color-grayscale-e;
+  padding: 1px;
+}
+
+.font-mono {
+  font-family: $font-mono;
+}
 
 .text-error {
   color: $color-status-error;
 }
 
+// Chips
+.chip {
+  border-radius: 9999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.chip-error {
+  background-color: $color-status-error-light;
+  color: $color-status-error-dark;
+}
+
+.chip-warning {
+  background-color: $color-status-warning-light;
+  color: $color-status-warning-dark;
+}
+
+.chip-info {
+  background-color: $color-status-info-light;
+  color: $color-status-info-dark;
+}
+
+.chip-success {
+  background-color: $color-status-success-light;
+  color: $color-status-success-dark;
+}
+
+// Blocks
 .block-error {
   border: 1px solid $color-status-error;
   background-color: $color-status-error-dark;

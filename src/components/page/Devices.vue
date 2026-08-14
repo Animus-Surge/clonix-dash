@@ -1,99 +1,68 @@
 <template>
   <Section>
     <Card title="Devices" icon="pc-display">
-      <ButtonGroup>
-        <Button><Icon icon="plus-lg"/> Create Device</Button>
-        <Button><Icon icon="filter"/> Filter</Button>
-        <DropdownButton>Actions</DropdownButton>
-        <Textbox placeholder="Search here..." />
-      </ButtonGroup>
-      <Table v-model="selectedRows"
-        style="font-family: 'Adwaita Mono', monospace;"
-        selectable linked
-        tableId="devs-list" 
-        :header="['UUID', 'Hostname', 'Serial Number', 'Provision Date', 'Last Check In', 'Uptime', 'Unit', 'Status']" 
-        :entries="devicesList"
-        @entry:click="tableEntryClick">
-      </Table>
-      <div class="paginator">
-        <Button disabled><Icon icon="chevron-double-left"></Icon></Button>
-        <Button disabled><Icon icon="chevron-left"></Icon></Button>
-        <Button disabled>1</Button>
-        <Button disabled><Icon icon="chevron-right"></Icon></Button>
-        <Button disabled><Icon icon="chevron-double-right"></Icon></Button>
-      </div>
+      <DataTable 
+        :columns="cols"
+        :filters="filters"
+        :items="data"
+        @row-click="entryClick">
+        <template #cell(hostname)="{ item }">
+          <span class="inline-code">{{ item.hostname }}</span>
+        </template>
+
+        <template #cell(serialNumber)="{ item }">
+          <span class="inline-code">{{ item.serialNumber }}</span>
+        </template>
+
+        <template #cell(status)="{ item }">
+          <span v-if="item.status.toLowerCase() === 'offline'" class="chip chip-error">{{ item.status }}</span>
+          <span v-else-if="item.status.toLowerCase() === 'healthy'" class="chip chip-success">{{ item.status }}</span>
+          <span v-else-if="item.status.toLowerCase() === 'degraded'" class="chip chip-warning">{{ item.status }}</span>
+          <span v-else class="chip chip-info">{{ item.status }}</span>
+        </template>
+      </DataTable>
     </Card>
   </Section>
 </template>
 
 <script setup lang="ts">
-import Section from '@/components/ui/sections/Section.vue';
 import Card from '@/components/ui/sections/Card.vue';
-import Table from '@/components/ui/tables/Table.vue';
-import ButtonGroup from '@/components/ui/ButtonGroup.vue';
-import Button from '@/components/ui/Button.vue';
-import Icon from '@/components/ui/Icon.vue';
+import DataTable from '@/components/ui/tables/DataTable.vue';
+import Section from '@/components/ui/sections/Section.vue';
+import { Device } from '@/types';
 
-import { ref } from 'vue'
-import DropdownButton from '../ui/DropdownButton.vue';
-import Textbox from '../ui/forms/Textbox.vue';
-import { useNotificationsStore } from '@/stores/notifications.js';
-
-import { useRouter } from 'vue-router';
-
-const selectedRows = ref([])
-const currentPage = ref(1)
-
-const router = useRouter()
-
-const notifStore = useNotificationsStore()
-
-const devicesList = [
-  ['01234567-89ab-cdef-0123456789ab', 'egr-w-it-esf-10', 'N/A', '2026-07-31', '2026-08-04 11:20:00', '4 Days', 'College of Engineering', 'Healthy'],
-  ['12345678-9abc-def0-123456789abc', 'egr-w-it-esf-03', 'ABC123D', '2026-06-20', '2026-08-04 11:20:00', '20 Days', 'College of Engineering', 'Healthy'],
-  ['23456789-abcd-ef01-23456789abcd', 'egr-l-4221-99', 'BCD234E', '2026-07-01', '2026-07-03 13:25:00', '0 Days', 'College of Engineering', 'Offline']
+const cols = [
+  { key: 'uuid', label: '', hidden: true },
+  { key: 'hostname', label: 'Hostname', sortable: true },
+  { key: 'type', label: 'Type', sortable: true },
+  { key: 'unit', label: 'Unit', sortable: true },
+  { key: 'serialNumber', label: 'Serial Number', sortable: false},
+  { key: 'checkIn', label: 'Last Check-In', sortable: false},
+  { key: 'status', label: 'Status', sortable: true },
 ]
 
-const actionButtons = [
-  ['refresh', "Refresh"],
-  ['create', "Create"],
-  ['delete', "Delete"],
-  ['view', "View"],
-  ['report', "Run Report"]
+const filters = [
+  { key: 'unit', label: 'Unit' },
+  { key: 'type', label: 'Type' },
+  { key: 'status', label: 'Status' },
 ]
-const buttonClick = (action: string) => {
-  switch (action) {
-    case 'refresh':
-      break
 
-    default:
-      break
-  }
-}
+const data: Device[] = [
+  { uuid: '01234567-89ab-cdef-0123456789ab', type: 'Research', hostname: 'chs-7ab1de1', serialNumber: '7ab1de1', unit: 'Humanities and Sciences', provisionDate: '2026-01-01', checkIn: '2026-07-12 00:00', status: 'Offline' },
+  { uuid: 'fedcba98-7654-3210-fedcba987654', type: 'Research', hostname: 'egr-w-ex-ab-98', serialNumber: 'abc123d', unit: 'Engineering', provisionDate: '2026-07-03', checkIn: '2026-08-01 00:00', status: 'Healthy' },
+  { uuid: 'ab836e9a-aaba-7c6a-742ab17309ff', type: 'Facstaff', hostname: 'N/A', serialNumber: 'N/A', unit: 'Engineering', provisionDate: '2026-01-01', checkIn: '0000-00-00 00:00', status: 'Unknown' },
+  { uuid: '01234567-89ab-cdef-0123456789ab', type: 'Desktop', hostname: 'chs-7ab1de1', serialNumber: '7ab1de1', unit: 'Humanities and Sciences', provisionDate: '2026-01-01', checkIn: '2026-07-12 00:00', status: 'Offline' },
+  { uuid: '01234567-89ab-cdef-0123456789ab', type: 'VM', hostname: 'chs-7ab1de1', serialNumber: '7ab1de1', unit: 'Humanities and Sciences', provisionDate: '2026-01-01', checkIn: '2026-07-12 00:00', status: 'Offline' },
+  { uuid: '72197ab8-99aa-729d-01947abc83fe', type: 'Server', hostname: 'vulpecula', serialNumber: 'USE31416D5', unit: 'Engineering', provisionDate: '2025-05-17', checkIn: '2026-08-13 15:01', status: 'Degraded' },
+  { uuid: '01234567-89ab-cdef-0123456789ab', type: 'VM', hostname: 'chs-7ab1de1', serialNumber: '7ab1de1', unit: 'Humanities and Sciences', provisionDate: '2026-01-01', checkIn: '2026-07-12 00:00', status: 'Offline' },
+  { uuid: '01234567-89ab-cdef-0123456789ab', type: 'VM', hostname: 'chs-7ab1de1', serialNumber: '7ab1de1', unit: 'Humanities and Sciences', provisionDate: '2026-01-01', checkIn: '2026-07-12 00:00', status: 'Offline' },
+]
 
-const tableEntryClick = (entry: string) => {
-  router.push(`/devices/${entry}`)
-}
+const entryClick = (item: Device, _index: number) => {
+  
 
-const paginate = (page: number) => {
-  if (page === -1) {
-    // First page
-  } else if (page === -2) {
-    // Last page
-  } else if (page === -3) {
-    // Next page
-  } else if (page === -4) {
-    // Previous page
-  } else {
-    // Numbered pages
-  }
 }
 </script>
 
 <style scoped lang="scss">
-.paginator {
-  gap: 5px;
-  display: flex;
-  justify-content: center;
-}
 </style>

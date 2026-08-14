@@ -4,7 +4,7 @@
       <Column>
         <Card title="Recent Messages" icon="chat-right-text">
         </Card>
-        <Card title="Action History">
+        <Card title="Action History" icon="clock-history">
 
         </Card>
       </Column>
@@ -16,7 +16,7 @@
       <Column>
         <Card title="Quick Actions" icon="lightning-fill">
           <Grid :num-cols="2">
-            <Button disabled>Action 1</Button>
+            <Button @click="testCreateNewDeviceModal">Create Device</Button>
           </Grid>
         </Card>
       </Column>
@@ -32,7 +32,9 @@ import Card from '@/components/ui/sections/Card.vue';
 import Button from '@/components/ui/Button.vue';
 import Table from '@/components/ui/tables/Table.vue';
 
-
+const testCreateNewDeviceModal = () => {
+  
+}
 </script>
 
 <style scoped lang="scss">

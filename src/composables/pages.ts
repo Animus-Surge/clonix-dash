@@ -5,10 +5,12 @@ import Devices from '@/components/page/Devices.vue'
 import Login from '@/components/page/Login.vue'
 import Main from '@/components/page/Main.vue'
 import Messages from '@/components/page/Messages.vue'
+import Sandbox from '@/components/page/Sandbox.vue'
 import Unit from '@/components/page/Unit.vue'
 import Units from '@/components/page/Units.vue'
 
 import { useCurrentUserStore } from '@/stores/currentUser'
+import { toDisplayString } from 'vue'
 
 // This array gets passed directly to the router and the SideNav component
 export const Pages = [
@@ -70,5 +72,15 @@ export const Pages = [
     icon: '',
     condition: true,
     displayOnNav: true
-  }
+  },
+
+  // Sandbox page; removed in production
+  {
+    path: '/sandbox',
+    name: 'Sandbox',
+    component: Sandbox,
+    icon: '',
+    condition: true,
+    displayOnNav: true
+  },
 ]

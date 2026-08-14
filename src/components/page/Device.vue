@@ -1,16 +1,25 @@
 <template>
   <Section>
-    <TabPanel :tab-titles="['Device Info', 'Metrics', 'Reports']" :num-tabs="3">
+    <TabPanel :tab-titles="['Device Info', 'Metrics', 'Hardware Info']" :num-tabs="3">
       <template v-slot:tab-0>
-        <Grid :num-cols="3">
+        <Grid :num-cols="2">
           <Card title="System Information" icon="pc-display">
             <table>
+              <tbody>
               <tr class="table-header">
                 <td>
                   Key
                 </td>
                 <td>
                   Value
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Hostname
+                </td>
+                <td>
+                  egr-e-ab-cd-01.rams.adp.vcu.edu
                 </td>
               </tr>
               <tr>
@@ -53,76 +62,14 @@
                   11/01/2025
                 </td>
               </tr>
+              </tbody>
             </table>
           </Card>
-          <Card title="Hardware Information" icon="cpu">
+          <Card title="Basic Network Information" icon="hdd-network">
             <table>
-              <tr class="table-header">
-                <td>
-                  Key
-                </td>
-                <td>
-                  Value
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  CPU
-                </td>
-                <td>
-                  Intel i7-12700u @ 2.3GHz 12 Core
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  GPU
-                </td>
-                <td>
-                  NVIDIA RTX 5000
-                </td>
-              </tr>
-              <tr>
-                <td>Memory</td>
-                <td>
-                  64 GB
-                </td>
-              </tr>
-            </table>
-          </Card>
-          <Card title="Network Information" icon="hdd-network">
-            <table>
-              <tr class="table-header">
-                <td>
-                  Key
-                </td>
-                <td>
-                  Value
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  IP Address
-                </td>
-                <td>
-                  10.0.0.1
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  nic1 MAC
-                </td>
-                <td>
-                  01:23:45:67:89:ab
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  Hostname
-                </td>
-                <td>
-                  egr-e-ab-cd-01.rams.adp.vcu.edu
-                </td>
-              </tr>
+              <tbody>
+                
+              </tbody>
             </table>
           </Card>
         </Grid>
@@ -137,7 +84,11 @@
         </Grid>
       </template>
       <template v-slot:tab-2>
+        <Grid>
+          <Card title="CPU Information" icon="cpu">
 
+          </Card>
+        </Grid>
       </template>
     </TabPanel>
   </Section>
@@ -163,17 +114,21 @@
             <td>
               <HiddenValue value="thisisatestkey!0123" />
             </td>
-            <td>
+            <td class="key-actions">
               <a class="actionbutton">
                 <Icon icon="trash"></Icon>
+              </a>
+              <a class="actionbutton">
+                <Icon icon="copy"></Icon>
               </a>
             </td>
           </tr>
         </table>
       </Card>
       <Card title="Actions" icon="lightning">
-        <Grid :num-cols="2">
+        <Grid :num-cols="2" gap-override="5px">
           <Button disabled>View Logs</Button>
+          <Button disabled>Run Report</Button>
           <Button disabled>View ENC</Button>
           <Button disabled>Transfer System</Button>
           <Button disabled>Remove Device</Button>
@@ -191,7 +146,7 @@ import Card from '../ui/sections/Card.vue';
 import { useDeviceViewStore } from '@/stores/devicesView';
 import Grid from '../ui/sections/Grid.vue';
 import Column from '../ui/sections/Column.vue';
-import AdvancedTable from '../ui/tables/AdvancedTable.vue';
+import Icon from '../ui/Icon.vue';
 import Button from '../ui/Button.vue';
 import HiddenValue from '../ui/HiddenValue.vue';
 
@@ -207,6 +162,13 @@ table {
   td, th {
     text-align: left;
     padding: 2px;
+
+    &.key-actions {
+      display: flex;
+      gap: 5px;
+
+      font-size: 16pt;
+    }
   }
 
   tr {
@@ -226,6 +188,16 @@ table {
     &:hover {
       background-color: $color-hover;
     }
+  }
+}
+
+.actionbutton {
+  cursor: pointer;
+
+  transition: color $transition-color;
+
+  &:hover {
+    color: blue;
   }
 }
 </style>

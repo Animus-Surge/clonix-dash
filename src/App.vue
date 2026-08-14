@@ -10,7 +10,7 @@
       </div>
       <div class="header-right">
         <span class="header-label">Hello, name!<br>Unit Name - Subunit</span>
-        <Button disabled class="logout-button">
+        <Button class="logout-button">
           <Icon icon="box-arrow-in-right"></Icon>
           <span>Logout</span>
         </Button>
@@ -24,25 +24,38 @@
     </div>
   </div>
   <NotificationPanel />
+  <!-- <div class="modal-wrapper">
+    <PopupBase id="create-device" title="Create Device">
+      <Form>
+        <Textbox name="hostname" title="Hostname" placeholder="Hostname" />
+      </Form>
+    </PopupBase>
+  </div> -->
 </template>
 
 <script setup lang='ts'>
 import SideNav from '@/components/ui/sidenav/SideNav.vue'
-import StatusMessage from '@/components/ui/StatusMessage.vue';
-import Icon from '@/components/ui/Icon.vue';
-import Button from '@/components/ui/Button.vue';
-import Image from '@/components/ui/Image.vue';
-import NotificationPanel from '@/components/ui/notifications/NotificationPanel.vue';
+import StatusMessage from '@/components/ui/StatusMessage.vue'
+import Icon from '@/components/ui/Icon.vue'
+import Button from '@/components/ui/Button.vue'
+import Image from '@/components/ui/Image.vue'
+import NotificationPanel from '@/components/ui/notifications/NotificationPanel.vue'
+import PopupBase from '@/components/ui/popups/PopupBase.vue'
 
-import { Pages } from '@/composables/pages.js';
+import { Pages } from '@/composables/pages.js'
 
-import { useNotificationsStore } from '@/stores/notifications';
-import { useCurrentUserStore } from '@/stores/currentUser';
+import { useNotificationsStore } from '@/stores/notifications'
+import { useCurrentUserStore } from '@/stores/currentUser'
+import { useModalStore } from '@/stores/modal'
 
 import { useRoute, useRouter } from 'vue-router'
 import { onMounted } from 'vue';
+import Form from './components/ui/forms/Form.vue'
+import Textbox from './components/ui/forms/Textbox.vue'
 
 const userStore = useCurrentUserStore()
+const notifStore = useNotificationsStore()
+const modalStore = useModalStore()
 
 const router = useRouter()
 const route = useRoute()
@@ -63,6 +76,10 @@ onMounted(() => {
     //router.push('/login')
   }
 })
+
+const deviceCreateQuickAction = () => {
+
+}
 
 </script>
 
@@ -176,5 +193,13 @@ onMounted(() => {
   span {
     font-size: 14pt;
   }
+}
+
+.modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>

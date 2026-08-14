@@ -1,14 +1,22 @@
 <template>
-  <input type="text" :placeholder="placeholder">
+  <span v-if="showTitle">{{ title }}</span>
+  <input :name="name" :type="type" :placeholder="placeholder">
 </template>
 
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
+    name: string
+    showTitle?: boolean
+    title?: string
+    type?: string
     placeholder?: string
   }>(),
   {
-    placeholder: ""
+    type: 'text',
+    placeholder: "",
+    showTitle: false,
+    title: ""
   }
 )
 </script>

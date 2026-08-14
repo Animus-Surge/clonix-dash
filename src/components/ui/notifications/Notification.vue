@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import Icon from '@/components/ui/Icon.vue';
+import { onMounted } from 'vue';
 
 const props = withDefaults(defineProps<{
     id: number
@@ -20,11 +21,20 @@ const props = withDefaults(defineProps<{
     message: string
     icon?: string
     type?: string
-    dismissAction: Function
+    dismissAction: Function,
+    dismissTimeoutMs?: number
   }>(), {
     type: 'normal',
-    icon: 'exclamation-triangle'
-  })
+    icon: 'exclamation-triangle',
+    dismissTimeoutMs: 5000
+  }
+)
+
+onMounted(() => {
+  setTimeout(() => {
+    props.dismissAction(props.id)
+  }, props.dismissTimeoutMs)
+})
 
 </script>
 
