@@ -6,9 +6,9 @@ export interface Device {
   type: string,
   serialNumber: string,
   unit: string,
-  provisionDate: string,
+  building: string,
+  room: string,
   checkIn: string,
-  status: string
 }
 
 export interface DeviceKey {
